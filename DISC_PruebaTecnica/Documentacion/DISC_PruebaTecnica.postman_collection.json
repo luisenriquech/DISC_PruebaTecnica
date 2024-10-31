@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "c5b5b995-8ea3-4399-a599-92abf289a519",
+		"name": "DISC_PruebaTecnica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22780300",
+		"_collection_link": "https://dark-rocket-826909.postman.co/workspace/DISC_PruebaTecnica~544e7ccf-76f7-4390-b91b-4c04f0932380/collection/22780300-c5b5b995-8ea3-4399-a599-92abf289a519?action=share&source=collection_link&creator=22780300"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Agregar Usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"usuario\": \"Luis Carbajal Hern\",\r\n  \"password\": \"123456As+\",\r\n  \"email\": \"l@lmd3.com\",\r\n  \"idRol\": 1,\r\n  \"idPuesto\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}users",
+							"host": [
+								"{{url}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"usuario\": \"Luis Carbajal Hern\",\r\n  \"password\": \"123456As+\",\r\n  \"email\": \"l@lmd3.com\",\r\n  \"idRol\": 1,\r\n  \"idPuesto\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}users",
+							"host": [
+								"{{url}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Lista de usuarios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}users",
+							"host": [
+								"{{url}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Usuario por Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}users/2",
+							"host": [
+								"{{url}}users"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Usuario por Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}users/19",
+							"host": [
+								"{{url}}users"
+							],
+							"path": [
+								"19"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login-Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parsear la respuesta JSON\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"// Guardar el token en una variable de entorno\r",
+							"pm.environment.set(\"token\", jsonData.results.token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuario\": \"QJJaF+RuRFzj/mV3vuuGoA==\",\r\n  \"password\": \"WT1tY4VCh5tNnld16kJW+g==\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}JWT/Login",
+					"host": [
+						"{{url}}JWT"
+					],
+					"path": [
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login-Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parsear la respuesta JSON\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"// Guardar el token en una variable de entorno\r",
+							"pm.environment.set(\"token\", jsonData.results.token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuario\": \"QJJaF+RuRFzj/mV3vuuGoA==\",\r\n  \"password\": \"WT1tY4VCh5tNnld16kJW+g==\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}JWT/Login",
+					"host": [
+						"{{url}}JWT"
+					],
+					"path": [
+						"Login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
